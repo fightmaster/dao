@@ -7,22 +7,22 @@ use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\Common\Persistence\Mapping\ClassMetadata;
 use PHPUnit_Framework_TestCase;
 use PHPUnit_Framework_MockObject_MockObject;
-use Fightmaster\Model\Manager\DoctrineManagerAbstract;
+use Fightmaster\Model\Manager\DoctrineManager;
 use Fightmaster\Tests\Model\SimpleModel;
 use Fightmaster\Tests\Model\SimpleAnotherModel;
 use Fightmaster\Exception\InvalidArgumentException;
 
 /**
- * Tests for \Fightmaster\Model\Manager\DoctrineManagerAbstract
+ * Tests for \Fightmaster\Model\Manager\DoctrineManager
  *
  * @author Dmitry Petrov aka fightmaster <old.fightmaster@gmail.com>
  */
-class DoctrineManagerAbstractTest extends PHPUnit_Framework_TestCase
+class DoctrineManagerTest extends PHPUnit_Framework_TestCase
 {
     /**
      * Unit Under Test (UUT)
      *
-     * @var DoctrineManagerAbstract
+     * @var DoctrineManager
      */
     protected $uut;
 
@@ -200,7 +200,7 @@ class DoctrineManagerAbstractTest extends PHPUnit_Framework_TestCase
         $this->objectManager->expects($this->once())->method('getClassMetadata')->with($this->shortClassName)->will($this->returnValue($classMetadata));
         $this->objectManager->expects($this->once())->method('getRepository')->with($this->fullClassName)->will($this->returnValue($this->objectRepository));
         $this->uut = $this->getMockForAbstractClass(
-            'Fightmaster\Model\Manager\DoctrineManagerAbstract',
+            'Fightmaster\Model\Manager\DoctrineManager',
             array($this->objectManager, $this->shortClassName));
     }
 

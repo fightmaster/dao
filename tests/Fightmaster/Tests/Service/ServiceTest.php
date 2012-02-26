@@ -5,7 +5,7 @@ namespace Fightmaster\Tests\Service;
 use PHPUnit_Framework_TestCase;
 use PHPUnit_Framework_MockObject_MockObject;
 use Fightmaster\Model\Manager\ManagerInterface;
-use Fightmaster\Model\Manager\DoctrineManagerAbstract;
+use Fightmaster\Model\Manager\DoctrineManager;
 use Fightmaster\Service\Service;
 use Fightmaster\Tests\Model\SimpleModel;
 use Fightmaster\Tests\Model\SimpleAnotherModel;

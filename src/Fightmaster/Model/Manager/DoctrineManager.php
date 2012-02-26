@@ -10,11 +10,11 @@ use Fightmaster\Exception\InvalidArgumentException;
 use UnexpectedValueException;
 
 /**
- * Abstract Doctrine Manager implementation which can be used as base class for your concrete manager (ORM or ODM, or another)
+ * Doctrine Manager implementation which can be used as base class for your concrete manager (ORM or ODM, or another)
  *
  * @author Dmitry Petrov aka fightmaster <old.fightmaster@gmail.com>
  */
-abstract class DoctrineManagerAbstract implements ManagerInterface
+class DoctrineManager implements ManagerInterface
 {
 
     /**
