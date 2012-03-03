@@ -10,6 +10,37 @@ Advantages
  * allows you to quickly switch between the ORM and ODM doctrine managers
  * promote clean and tested code. all of the business application logic should be in the services
 
+
+
+
+Installation
+-----------------
+
+If you use a deps file, you could add:
+
+ <pre>
+ [dao]
+     git=https://github.com/fightmaster/dao.git
+ </pre>
+
+Or if you want to clone the repos:
+
+ <pre>
+ git clone https://github.com/fightmaster/dao.git vendor/dao
+ </pre>
+
+Add the namespace to your autoloader
+
+```php
+<?php
+ $loader->registerNamespaces(array(
+     ............
+     'Fightmaster'   => __DIR__.'/../vendor/dao/src',
+     ...........
+ ));
+
+```
+
 Examples
 -----------------
 
