@@ -11,7 +11,7 @@
 
 <phpunit bootstrap="./tests/bootstrap.php" color="true">
     <testsuites>
-        <testsuite name="SLDAO">
+        <testsuite name="DAO">
             <directory suffix="Test.php">./tests</directory>
         </testsuite>
     </testsuites>

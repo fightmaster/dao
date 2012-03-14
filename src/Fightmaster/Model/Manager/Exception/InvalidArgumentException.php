@@ -9,7 +9,7 @@
  * with this source code in the file LICENSE.
  */
 
-namespace Fightmaster\Exception;
+namespace Fightmaster\Model\Manager\Exception;
 
 /**
  * @author Dmitry Petrov aka fightmaster <old.fightmaster@gmail.com>

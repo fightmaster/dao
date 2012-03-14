@@ -19,7 +19,7 @@ use PHPUnit_Framework_MockObject_MockObject;
 use Fightmaster\Model\Manager\DoctrineManager;
 use Fightmaster\Tests\Model\SimpleModel;
 use Fightmaster\Tests\Model\SimpleAnotherModel;
-use Fightmaster\Exception\InvalidArgumentException;
+use Fightmaster\Model\Manager\Exception\InvalidArgumentException;
 
 /**
  * Tests for \Fightmaster\Model\Manager\DoctrineManager

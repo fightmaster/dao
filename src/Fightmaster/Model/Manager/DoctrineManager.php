@@ -14,7 +14,7 @@ namespace Fightmaster\Model\Manager;
 use \object;
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\Common\Persistence\ObjectRepository;
-use Fightmaster\Exception\InvalidArgumentException;
+use Fightmaster\Model\Manager\Exception\InvalidArgumentException;
 use UnexpectedValueException;
 
 /**
