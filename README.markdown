@@ -10,6 +10,7 @@ Advantages
  * allows you to quickly switch between the ORM and ODM doctrine managers
  * promote clean and tested code. all of the business application logic should be in the services
 
+[![Build Status](https://secure.travis-ci.org/fightmaster/dao.png?branch=master)](http://travis-ci.org/fightmaster/dao)
 
 Installation
 -----------------
