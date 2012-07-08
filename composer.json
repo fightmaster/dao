@@ -1,0 +1,24 @@
+{
+    "name": "fightmaster/dao",
+    "type": "library",
+    "description": "Simple implementation of Data Access Object pattern for Symfony 2 projects.",
+    "keywords": ["symfony","dao", "doctrine", "orm", "odm"],
+    "homepage": "https://github.com/fightmaster/dao",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Dmitry Petrov",
+            "email": "old.fightmaster@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "doctrine/common": "2.2.2"
+    },
+    "autoload": {
+        "psr-0": {
+            "Fightmaster": "src"
+        }
+    }
+}

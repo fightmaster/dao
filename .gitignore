@@ -1,4 +1,6 @@
-vendor/symfony
-vendor/doctrine-common
 phpunit.xml
 tests/autoload.php
+build/
+/composer.phar
+composer.lock
+vendor

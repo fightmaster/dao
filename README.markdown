@@ -1,7 +1,7 @@
 Simple implementation of Data Access Object pattern for symfony 2 projects.
 
  * Has unit tests: yes
- * Vendors: Symfony 2 Class Loader component, doctrine-common
+ * Vendors: doctrine-common
 
 
 Advantages
@@ -9,8 +9,6 @@ Advantages
 
  * allows you to quickly switch between the ORM and ODM doctrine managers
  * promote clean and tested code. all of the business application logic should be in the services
-
-
 
 
 Installation
@@ -28,6 +26,12 @@ Or if you want to clone the repos:
  <pre>
  git clone https://github.com/fightmaster/dao.git vendor/dao
  </pre>
+
+If you use Composer, you could add:
+
+```
+{"require": {"fightmaster/dao": "1.x"}}
+```
 
 Add the namespace to your autoloader
 

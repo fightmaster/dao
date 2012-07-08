@@ -9,17 +9,36 @@
  * with this source code in the file LICENSE.
  */
 
-$vendorDir = __DIR__.'/../vendor';
-require_once $vendorDir.'/symfony/src/Symfony/Component/ClassLoader/UniversalClassLoader.php';
+/**
+ * @author Dmitry Petrov <dmitry.petrov@opensoftdev.ru>
+ */
+spl_autoload_register(function($class)
+{
+   if (0 === strpos($class, 'Fightmaster\\Tests')) {
+       $path = __DIR__.'/'.strtr($class, '\\', '/').'.php';
+       if (file_exists($path) && is_readable($path)) {
+           require_once $path;
 
-use Symfony\Component\ClassLoader\UniversalClassLoader;
+           return true;
+       }
+   } else if (0 === strpos($class, 'Fightmaster\\')) {
+       $path = __DIR__.'/../src/'.($class = strtr($class, '\\', '/')).'.php';
+       if (file_exists($path) && is_readable($path)) {
+           require_once $path;
 
-$loader = new UniversalClassLoader();
-$loader->registerNamespaces(array(
-    'Symfony'                => array($vendorDir.'/symfony/src', $vendorDir.'/bundles'),
-    'Doctrine\\Common'       => $vendorDir.'/doctrine-common/lib',
-    'Fightmaster\\Tests'     => $vendorDir.'/../tests',
-    'Fightmaster'            => $vendorDir.'/../src'
-));
+           return true;
+       }
+   } else if (0 === strpos($class, 'Doctrine\\Common\\')) {
+           $path = __DIR__.'/../vendor/doctrine-common/lib/'.($class = strtr($class, '\\', '/')).'.php';
+           if (file_exists($path) && is_readable($path)) {
+               require_once $path;
 
-$loader->register();
+               return true;
+           }
+       }
+});
+
+if (file_exists($loader = __DIR__.'/../vendor/autoload.php')) {
+    require_once $loader;
+}
+
