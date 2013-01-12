@@ -11,7 +11,8 @@
 
 namespace Fightmaster\Model\Manager;
 
-use \object;
+use UnexpectedValueException;
+use Fightmaster\Model\Manager\Exception\InvalidArgumentException;
 
 /**
  * Interface to be implemented by managers. This adds an additional level
@@ -35,7 +36,7 @@ interface ManagerInterface
      * Creates an empty object instance.
      *
      * @abstract
-     * @return Object
+     * @return mixed
      */
     public function create();
 
@@ -43,8 +44,9 @@ interface ManagerInterface
      * Saves the object
      *
      * @abstract
-     * @param object $object
+     * @param mixed $object
      * @param bool $flush
+     * @throws InvalidArgumentException
      */
     public function save($object, $flush = true);
 
@@ -52,8 +54,9 @@ interface ManagerInterface
      * Removes the object
      *
      * @abstract
-     * @param object $object
+     * @param mixed $object
      * @param bool $flush
+     * @throws InvalidArgumentException
      */
     public function remove($object, $flush = true);
 
@@ -62,14 +65,14 @@ interface ManagerInterface
      *
      * @abstract
      * @param int|string $id The identifier.
-     * @return object The object.
+     * @return mixed The object.
      */
     public function find($id);
 
     /**
      * Finds all objects in the repository.
      *
-     * @return object[] The objects.
+     * @return mixed The objects.
      */
     public function findAll();
 
@@ -78,7 +81,7 @@ interface ManagerInterface
      *
      * @abstract
      * @param array $criteria
-     * @return object
+     * @return mixed
      */
     public function findOneBy(array $criteria);
 
@@ -93,7 +96,7 @@ interface ManagerInterface
      * @param array|null $orderBy
      * @param null $limit
      * @param null $offset
-     * @return object[]
+     * @return mixed
      */
     public function findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null);
 

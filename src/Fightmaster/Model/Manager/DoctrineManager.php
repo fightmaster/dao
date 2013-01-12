@@ -11,11 +11,10 @@
 
 namespace Fightmaster\Model\Manager;
 
-use \object;
+use UnexpectedValueException;
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\Common\Persistence\ObjectRepository;
 use Fightmaster\Model\Manager\Exception\InvalidArgumentException;
-use UnexpectedValueException;
 
 /**
  * Doctrine Manager implementation which can be used as base class for your concrete manager (ORM or ODM, or another)
@@ -174,7 +173,7 @@ class DoctrineManager implements ManagerInterface
     private function isExpectedObject($object)
     {
         $className = $this->getClass();
-        if (!$object instanceof $className) {
+        if (!is_object($object) || !$object instanceof $className) {
             throw new InvalidArgumentException();
         }
 

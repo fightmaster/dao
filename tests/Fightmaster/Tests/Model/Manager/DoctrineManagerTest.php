@@ -11,15 +11,14 @@
 
 namespace Fightmaster\Tests\Model\Manager;
 
-
 use Doctrine\Common\Persistence\ObjectManager;
-use Doctrine\Common\Persistence\Mapping\ClassMetadata;
+use Doctrine\Common\Persistence\ObjectRepository;
 use PHPUnit_Framework_TestCase;
 use PHPUnit_Framework_MockObject_MockObject;
 use Fightmaster\Model\Manager\DoctrineManager;
+use Fightmaster\Model\Manager\Exception\InvalidArgumentException;
 use Fightmaster\Tests\Model\SimpleModel;
 use Fightmaster\Tests\Model\SimpleAnotherModel;
-use Fightmaster\Model\Manager\Exception\InvalidArgumentException;
 
 /**
  * Tests for \Fightmaster\Model\Manager\DoctrineManager
@@ -111,6 +110,18 @@ class DoctrineManagerTest extends PHPUnit_Framework_TestCase
     /**
      * @test
      * @depends getClass
+     * @expectedException InvalidArgumentException
+     */
+    public function saveWithNonObjectArguments()
+    {
+        $this->objectManager->expects($this->never())->method('flush');
+        $this->objectManager->expects($this->never())->method('persist');
+        $this->uut->save('string');
+    }
+
+    /**
+     * @test
+     * @depends getClass
      */
     public function removeWithoutFlush()
     {
@@ -143,6 +154,18 @@ class DoctrineManagerTest extends PHPUnit_Framework_TestCase
         $this->objectManager->expects($this->never())->method('remove');
         $simpleModel = new SimpleAnotherModel();
         $this->uut->remove($simpleModel);
+    }
+
+    /**
+     * @test
+     * @depends getClass
+     * @expectedException InvalidArgumentException
+     */
+    public function removeWithNonObjectArguments()
+    {
+        $this->objectManager->expects($this->never())->method('flush');
+        $this->objectManager->expects($this->never())->method('remove');
+        $this->uut->remove(true);
     }
 
     /**
